@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{3DDA4BB5-A8D6-403A-A517-073BDE99B2E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nonsense.Data", "services\Nonsense.Data\Nonsense.Data.csproj", "{4EEFF2EC-0DDD-473D-9B8B-18742CEF12E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nonsense.Tasks", "Nonsense.Tasks", "{6629F28A-03BA-4BB5-8FBC-CAFBCBCAB9E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nonsense.Tasks.Model", "services\Nonsense.Tasks\Nonsense.Tasks.Model\Nonsense.Tasks.Model.csproj", "{198AE114-DEAD-4AFE-A233-C7F91A90E4F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nonsense.Tasks.BusinessLogic", "services\Nonsense.Tasks\Nonsense.Tasks.BusinessLogic\Nonsense.Tasks.BusinessLogic.csproj", "{D28547AA-6068-4F4C-8482-97C777437871}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nonsense.Tasks.API", "services\Nonsense.Tasks\Nonsense.Tasks.API\Nonsense.Tasks.API.csproj", "{1B5E1605-68E4-43D9-86BB-D2DF47487704}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EEFF2EC-0DDD-473D-9B8B-18742CEF12E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EEFF2EC-0DDD-473D-9B8B-18742CEF12E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EEFF2EC-0DDD-473D-9B8B-18742CEF12E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EEFF2EC-0DDD-473D-9B8B-18742CEF12E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{198AE114-DEAD-4AFE-A233-C7F91A90E4F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{198AE114-DEAD-4AFE-A233-C7F91A90E4F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{198AE114-DEAD-4AFE-A233-C7F91A90E4F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{198AE114-DEAD-4AFE-A233-C7F91A90E4F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D28547AA-6068-4F4C-8482-97C777437871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D28547AA-6068-4F4C-8482-97C777437871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D28547AA-6068-4F4C-8482-97C777437871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D28547AA-6068-4F4C-8482-97C777437871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B5E1605-68E4-43D9-86BB-D2DF47487704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B5E1605-68E4-43D9-86BB-D2DF47487704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B5E1605-68E4-43D9-86BB-D2DF47487704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B5E1605-68E4-43D9-86BB-D2DF47487704}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4EEFF2EC-0DDD-473D-9B8B-18742CEF12E3} = {3DDA4BB5-A8D6-403A-A517-073BDE99B2E2}
+		{6629F28A-03BA-4BB5-8FBC-CAFBCBCAB9E6} = {3DDA4BB5-A8D6-403A-A517-073BDE99B2E2}
+		{198AE114-DEAD-4AFE-A233-C7F91A90E4F0} = {6629F28A-03BA-4BB5-8FBC-CAFBCBCAB9E6}
+		{D28547AA-6068-4F4C-8482-97C777437871} = {6629F28A-03BA-4BB5-8FBC-CAFBCBCAB9E6}
+		{1B5E1605-68E4-43D9-86BB-D2DF47487704} = {6629F28A-03BA-4BB5-8FBC-CAFBCBCAB9E6}
+	EndGlobalSection
+EndGlobal

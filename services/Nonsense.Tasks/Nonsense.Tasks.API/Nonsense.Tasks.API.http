@@ -1,0 +1,6 @@
+@Nonsense.Tasks.API_HostAddress = http://localhost:5201
+
+GET {{Nonsense.Tasks.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
