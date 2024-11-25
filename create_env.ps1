@@ -4,7 +4,7 @@ $envFile = ".env"
 # Prompt the user for the connection string
 $connectionString = Read-Host "Enter the database connection string (or press Enter to use a default value)"
 if (-not $connectionString) {
-    $connectionString = "Server=localhost,1433;Database=Nonsense;User Id=sa;Password=YourStrongPassword!;"
+    $connectionString = "Server=localhost,1433;Database=Nonsense;User Id=sa;Password=StrongPassword!123;"
 }
 
 # Define key-value pairs for the .env file
