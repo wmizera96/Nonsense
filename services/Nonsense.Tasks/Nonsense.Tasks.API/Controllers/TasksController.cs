@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Nonsense.Common.Settings;
+using Nonsense.Tasks.API.Settings;
 
 namespace Nonsense.Tasks.API.Controllers;
 

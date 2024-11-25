@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Nonsense.Common.Settings;
+namespace Nonsense.Tasks.API.Settings;
 
 public record DatabaseSettings
 {

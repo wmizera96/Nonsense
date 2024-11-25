@@ -1,16 +1,18 @@
+using dotenv.net;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Nonsense.Common.Settings;
 
 namespace Nonsense.Common;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddAppSettings(this IServiceCollection services, ConfigurationManager configuration)
+    public static IServiceCollection AddAppSettings<T>(this IServiceCollection services, ConfigurationManager configuration)
+        where T : class
     {
-        configuration.AddJsonFile("appsettings.json", optional: false);
+        DotEnv.Load();
+        configuration.AddEnvironmentVariables();
 
-        services.AddOptions<AppSettings>()
+        services.AddOptions<T>()
             .Bind(configuration)
             .ValidateDataAnnotations()
             .ValidateOnStart();

@@ -1,4 +1,5 @@
 using Nonsense.Common;
+using Nonsense.Tasks.API.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 // custom services
-builder.Services.AddAppSettings(builder.Configuration);
+builder.Services.AddAppSettings<AppSettings>(builder.Configuration);
 
 var app = builder.Build();
 
