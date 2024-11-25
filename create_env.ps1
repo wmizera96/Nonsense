@@ -9,7 +9,7 @@ if (-not $connectionString) {
 
 # Define key-value pairs for the .env file
 $envEntries = @(
-    "Database__ConnectionString=Server=$connectionString"
+    "Database__ConnectionString=$connectionString"
     "Database__Strategy=Container"
 )
 

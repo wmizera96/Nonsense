@@ -15,10 +15,4 @@
     <ProjectReference Include="..\Nonsense.Tasks.BusinessLogic\Nonsense.Tasks.BusinessLogic.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include=".env">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
 </Project>
