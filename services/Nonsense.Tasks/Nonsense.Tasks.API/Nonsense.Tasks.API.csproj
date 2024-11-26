@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Nonsense.Common\Nonsense.Common.csproj" />
     <ProjectReference Include="..\Nonsense.Tasks.BusinessLogic\Nonsense.Tasks.BusinessLogic.csproj" />
   </ItemGroup>
 
