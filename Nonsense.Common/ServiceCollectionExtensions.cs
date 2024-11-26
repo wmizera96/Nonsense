@@ -1,20 +1,15 @@
-using dotenv.net;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace Nonsense.Common;
 
 public static class ServiceCollectionExtensions
 {
-    private const string DotEnvFileName = ".env";
-    
     public static IServiceCollection AddAppSettings<T>(this IServiceCollection services, ConfigurationManager configuration)
         where T : class
     {
-        var dotEnvFilePath = ResolveDotEnvFilePath();
-        DotEnv.Load(new DotEnvOptions(envFilePaths: [dotEnvFilePath]));
-        configuration.AddEnvironmentVariables();
-
         services.AddOptions<T>()
             .Bind(configuration)
             .ValidateDataAnnotations()
@@ -23,23 +18,24 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    private static string ResolveDotEnvFilePath()
+    /// <summary>
+    /// Must be called after <see cref="AddAppSettings{T}"/>
+    /// </summary>
+    public static IServiceCollection AddDataContext<TContext, TSettings>(
+        this IServiceCollection services, 
+        Func<TSettings, string> connectionStringResolver)
+            where TContext: DbContext
+            where TSettings: class
     {
-        var currentDirectory = Environment.CurrentDirectory;
-        var dotEnvFilePath = "";
+        using var provider = services.BuildServiceProvider();
+        var appSettings = provider.GetRequiredService<IOptions<TSettings>>();
+        var connectionString = connectionStringResolver(appSettings.Value);
         
-        while(string.IsNullOrEmpty(currentDirectory) == false)
+        services.AddDbContext<TContext>(options =>
         {
-            dotEnvFilePath = Path.Combine(currentDirectory, DotEnvFileName);
+            options.UseSqlServer(connectionString);
+        });
 
-            if (File.Exists(dotEnvFilePath))
-            {
-                break;
-            }
-
-            currentDirectory = Path.GetDirectoryName(currentDirectory);
-        }
-        
-        return dotEnvFilePath;
+        return services;
     }
 }

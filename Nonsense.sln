@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nonsense.Data", "data\Nonse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nonsense.Common", "Nonsense.Common\Nonsense.Common.csproj", "{DA2B1204-A592-4C40-AF5E-76448A346E27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nonsense.Data.MigrationRunner", "data\Nonsense.Data.MigrationRunner\Nonsense.Data.MigrationRunner.csproj", "{5AE9D6DB-7C4D-408B-814E-A028011C893B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{DA2B1204-A592-4C40-AF5E-76448A346E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA2B1204-A592-4C40-AF5E-76448A346E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA2B1204-A592-4C40-AF5E-76448A346E27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AE9D6DB-7C4D-408B-814E-A028011C893B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AE9D6DB-7C4D-408B-814E-A028011C893B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AE9D6DB-7C4D-408B-814E-A028011C893B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AE9D6DB-7C4D-408B-814E-A028011C893B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6629F28A-03BA-4BB5-8FBC-CAFBCBCAB9E6} = {3DDA4BB5-A8D6-403A-A517-073BDE99B2E2}
@@ -55,5 +61,6 @@ Global
 		{D28547AA-6068-4F4C-8482-97C777437871} = {6629F28A-03BA-4BB5-8FBC-CAFBCBCAB9E6}
 		{1B5E1605-68E4-43D9-86BB-D2DF47487704} = {6629F28A-03BA-4BB5-8FBC-CAFBCBCAB9E6}
 		{B10DA3E7-8DE4-40C6-9EB5-66C35DBCEB3E} = {D1FD0E1A-98AB-413F-82F3-AD435F8D431A}
+		{5AE9D6DB-7C4D-408B-814E-A028011C893B} = {D1FD0E1A-98AB-413F-82F3-AD435F8D431A}
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,5 @@
 using Nonsense.Common;
+using Nonsense.Data;
 using Nonsense.Tasks.API.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +12,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 // custom services
+builder.Configuration.AddDotEnvFile();
 builder.Services.AddAppSettings<AppSettings>(builder.Configuration);
+builder.Services.AddDataContext<NonsenseDataContext, AppSettings>(appSettings => appSettings.Database.ConnectionString);
 
 var app = builder.Build();
 
