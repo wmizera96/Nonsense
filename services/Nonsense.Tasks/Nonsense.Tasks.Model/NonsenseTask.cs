@@ -1,6 +1,8 @@
-﻿namespace Nonsense.Tasks.Model;
+﻿using Nonsense.Common;
 
-public class NonsenseTask
+namespace Nonsense.Tasks.Model;
+
+public class NonsenseTask : BaseEntity
 {
     public string Name { get; set; }
     public string Description { get; set; }
