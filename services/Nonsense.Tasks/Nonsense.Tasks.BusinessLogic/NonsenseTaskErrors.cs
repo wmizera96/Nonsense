@@ -1,4 +1,4 @@
-using Nonsense.Common.Exceptions;
+using Nonsense.Common.Errors;
 
 namespace Nonsense.Tasks.BusinessLogic;
 

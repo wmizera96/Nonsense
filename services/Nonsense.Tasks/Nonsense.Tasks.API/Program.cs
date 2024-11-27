@@ -1,5 +1,6 @@
 using Nonsense.Common;
 using Nonsense.Data;
+using Nonsense.Tasks.API.Middleware;
 using Nonsense.Tasks.API.Settings;
 using Nonsense.Tasks.BusinessLogic;
 using Nonsense.Tasks.BusinessLogic.Requests;
@@ -18,8 +19,10 @@ builder.Configuration.AddDotEnvFile();
 builder.Services.AddAppSettings<AppSettings>(builder.Configuration);
 builder.Services.AddDataContext<INonsenseDataContext, NonsenseDataContext, AppSettings>(appSettings => appSettings.Database.ConnectionString);
 builder.Services.AddMediatR(options => options.RegisterServicesFromAssemblyContaining<CreateNonsenseTaskCommand>());
-
+builder.Services.AddScoped<ExceptionMiddleware>();
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

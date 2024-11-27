@@ -1,4 +1,4 @@
-namespace Nonsense.Common.Exceptions;
+namespace Nonsense.Common.Errors;
 
 public abstract class BaseApiErrorException(string errorCode, Dictionary<string, string>? parameters) : Exception
 {
