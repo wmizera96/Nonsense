@@ -1,6 +1,7 @@
 using Nonsense.Common;
 using Nonsense.Data;
 using Nonsense.Tasks.API.Settings;
+using Nonsense.Tasks.BusinessLogic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,8 @@ builder.Services.AddControllers();
 // custom services
 builder.Configuration.AddDotEnvFile();
 builder.Services.AddAppSettings<AppSettings>(builder.Configuration);
-builder.Services.AddDataContext<NonsenseDataContext, AppSettings>(appSettings => appSettings.Database.ConnectionString);
+builder.Services.AddDataContext<INonsenseDataContext, NonsenseDataContext, AppSettings>(appSettings => appSettings.Database.ConnectionString);
+builder.Services.AddMediatR(options => options.RegisterServicesFromAssemblyContaining<CreateNonsenseTaskCommand>());
 
 var app = builder.Build();
 

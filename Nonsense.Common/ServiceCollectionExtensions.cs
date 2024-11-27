@@ -21,21 +21,24 @@ public static class ServiceCollectionExtensions
     /// <summary>
     /// Must be called after <see cref="AddAppSettings{T}"/>
     /// </summary>
-    public static IServiceCollection AddDataContext<TContext, TSettings>(
+    public static IServiceCollection AddDataContext<TContextInterface, TContextImplementation, TSettings>(
         this IServiceCollection services, 
         Func<TSettings, string> connectionStringResolver)
-            where TContext: DbContext
+            where TContextInterface : class
+            where TContextImplementation: DbContext, TContextInterface
             where TSettings: class
     {
         using var provider = services.BuildServiceProvider();
         var appSettings = provider.GetRequiredService<IOptions<TSettings>>();
         var connectionString = connectionStringResolver(appSettings.Value);
         
-        services.AddDbContext<TContext>(options =>
+        services.AddDbContext<TContextImplementation>(options =>
         {
             options.UseSqlServer(connectionString);
         });
 
+        services.AddScoped<TContextInterface, TContextImplementation>();
+        
         return services;
     }
 }

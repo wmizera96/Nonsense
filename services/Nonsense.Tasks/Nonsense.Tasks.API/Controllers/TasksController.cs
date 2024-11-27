@@ -1,23 +1,38 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using Nonsense.Tasks.API.Settings;
+using Nonsense.Tasks.BusinessLogic;
 
 namespace Nonsense.Tasks.API.Controllers;
 
-[ApiController]
-[Route("api/v1/[controller]")]
-public class TasksController : ControllerBase
+public class TasksController : BaseApiController
 {
-    private readonly IOptions<AppSettings> _appSettings;
-
-    public TasksController(IOptions<AppSettings> appSettings)
+    [HttpGet("{Id:guid}")]
+    public async Task<IActionResult> Get(Guid id)
     {
-        _appSettings = appSettings;
+        return Ok(await Mediator.Send(new GetNonsenseTaskQuery(id)));
     }
     
     [HttpGet]
-    public IActionResult GetList()
+    public async Task<IActionResult> GetList()
     {
-        return Ok(_appSettings.Value.Database.ConnectionString);
+        return Ok(await Mediator.Send(new ListNonsenseTasksQuery()));
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(CreateNonsenseTaskCommand request)
+    {
+        return Ok(await Mediator.Send(request));
+    }
+    
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> Update(Guid id, UpdateNonsenseTaskCommand request)
+    {
+        request.Id = id;
+        return Ok(await Mediator.Send(request));
+    }
+    
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        return Ok(await Mediator.Send(new DeleteNonsenseTaskCommand(id)));
     }
 }
