@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 using MediatR;
 using Nonsense.Tasks.Model;
 
-namespace Nonsense.Tasks.BusinessLogic;
+namespace Nonsense.Tasks.BusinessLogic.Requests;
 
 public record UpdateNonsenseTaskCommand : IRequest<NonsenseTask>
 {

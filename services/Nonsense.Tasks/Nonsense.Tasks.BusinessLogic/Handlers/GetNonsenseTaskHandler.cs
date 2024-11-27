@@ -1,15 +1,22 @@
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Nonsense.Data;
+using Nonsense.Tasks.BusinessLogic.Requests;
 using Nonsense.Tasks.Model;
 
-namespace Nonsense.Tasks.BusinessLogic;
+namespace Nonsense.Tasks.BusinessLogic.Handlers;
 
 public class GetNonsenseTaskHandler(INonsenseDataContext dataContext)
     : IRequestHandler<GetNonsenseTaskQuery, NonsenseTask>
 {
     public async Task<NonsenseTask> Handle(GetNonsenseTaskQuery request, CancellationToken cancellationToken)
     {
-        return await dataContext.Tasks.FirstOrDefaultAsync(task => task.Id == request.Id, cancellationToken);
+        var task = await dataContext.Tasks.FindAsync(request.Id, cancellationToken);
+
+        if (task is null)
+        {
+            throw NonsenseTaskErrors.NotFound();
+        }
+        
+        return task;
     }
 }

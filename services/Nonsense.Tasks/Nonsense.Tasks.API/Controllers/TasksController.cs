@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Nonsense.Tasks.BusinessLogic;
+using Nonsense.Tasks.BusinessLogic.Requests;
 
 namespace Nonsense.Tasks.API.Controllers;
 

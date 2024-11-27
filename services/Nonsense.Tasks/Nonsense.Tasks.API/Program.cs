@@ -2,6 +2,7 @@ using Nonsense.Common;
 using Nonsense.Data;
 using Nonsense.Tasks.API.Settings;
 using Nonsense.Tasks.BusinessLogic;
+using Nonsense.Tasks.BusinessLogic.Requests;
 
 var builder = WebApplication.CreateBuilder(args);
 
