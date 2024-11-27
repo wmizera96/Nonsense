@@ -9,14 +9,14 @@ public class DeleteNonsenseTaskHandler(INonsenseDataContext dataContext)
 {
     public async Task<Unit> Handle(DeleteNonsenseTaskCommand request, CancellationToken cancellationToken)
     {
-        var task = await dataContext.Tasks.FindAsync(request.Id, cancellationToken);
+        var task = await dataContext.NonsenseTasks.FindAsync(request.Id, cancellationToken);
 
         if (task is null)
         {
             throw NonsenseTaskErrors.NotFound();
         }
         
-        dataContext.Tasks.Remove(task);
+        dataContext.NonsenseTasks.Remove(task);
 
         await dataContext.SaveChangesAsync(cancellationToken);
 

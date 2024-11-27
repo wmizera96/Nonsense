@@ -11,14 +11,14 @@ public class UpdateNonsenseTaskHandler(INonsenseDataContext dataContext)
 {
     public async Task<NonsenseTask> Handle(UpdateNonsenseTaskCommand request, CancellationToken cancellationToken)
     {
-        var nonsenseTask = await dataContext.Tasks.FindAsync(request.Id, cancellationToken);
+        var nonsenseTask = await dataContext.NonsenseTasks.FindAsync(request.Id, cancellationToken);
 
         if (nonsenseTask is null)
         {
             throw new NullReferenceException($"Task with id {request.Id} does not exist");
         }
         
-        var taskWithExistingName = await dataContext.Tasks.FirstOrDefaultAsync(task => task.Name == request.Name && task.Id != request.Id, cancellationToken);
+        var taskWithExistingName = await dataContext.NonsenseTasks.FirstOrDefaultAsync(task => task.Name == request.Name && task.Id != request.Id, cancellationToken);
 
         if (taskWithExistingName is not null)
         {

@@ -11,6 +11,6 @@ public class ListNonsenseTaskHandler(INonsenseDataContext dataContext)
 {
     public async Task<List<NonsenseTask>> Handle(ListNonsenseTasksQuery request, CancellationToken cancellationToken)
     {
-        return await dataContext.Tasks.ToListAsync(cancellationToken);
+        return await dataContext.NonsenseTasks.ToListAsync(cancellationToken);
     }
 }

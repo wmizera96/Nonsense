@@ -11,12 +11,12 @@ public class CreateNonsenseTaskHandler(INonsenseDataContext dataContext)
 {
     public async Task<NonsenseTask> Handle(CreateNonsenseTaskCommand request, CancellationToken cancellationToken)
     {
-        // var existingTask = dataContext.Tasks.FirstOrDefaultAsync(t => t.Name == request.Name, cancellationToken);
+        var existingTask = dataContext.NonsenseTasks.FirstOrDefaultAsync(t => t.Name == request.Name, cancellationToken);
 
-        // if (existingTask is not null)
-        // {
-            // throw NonsenseTaskErrors.NameAlreadyExists();
-        // }
+        if (existingTask is not null)
+        {
+            throw NonsenseTaskErrors.NameAlreadyExists();
+        }
         
         var nonsenseTask = new NonsenseTask
         {
@@ -24,7 +24,7 @@ public class CreateNonsenseTaskHandler(INonsenseDataContext dataContext)
             Description = request.Description,
         };
         
-        dataContext.Tasks.Add(nonsenseTask);
+        dataContext.NonsenseTasks.Add(nonsenseTask);
         
         await dataContext.SaveChangesAsync(cancellationToken);
         

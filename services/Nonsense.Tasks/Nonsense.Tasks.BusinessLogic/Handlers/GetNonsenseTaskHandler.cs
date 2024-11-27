@@ -10,7 +10,7 @@ public class GetNonsenseTaskHandler(INonsenseDataContext dataContext)
 {
     public async Task<NonsenseTask> Handle(GetNonsenseTaskQuery request, CancellationToken cancellationToken)
     {
-        var task = await dataContext.Tasks.FindAsync(request.Id, cancellationToken);
+        var task = await dataContext.NonsenseTasks.FindAsync(request.Id, cancellationToken);
 
         if (task is null)
         {

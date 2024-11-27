@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nonsense.Data;
 
@@ -11,9 +12,11 @@ using Nonsense.Data;
 namespace Nonsense.Data.MigrationRunner.Migrations
 {
     [DbContext(typeof(NonsenseDataContext))]
-    partial class NonsenseDataContextModelSnapshot : ModelSnapshot
+    [Migration("20241127194821_AddUniqueIndexForNonsenseTask")]
+    partial class AddUniqueIndexForNonsenseTask
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
